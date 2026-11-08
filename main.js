@@ -12,12 +12,12 @@ function calculateTip(form, tipText, totalText) {
     form.elements['custom-tip-value'].value || form.elements['tip'].value
   ) || 0
 
-  const totalTip = amount * (tip / 100) / people
-  const totalAmount = amount + totalTip
+  const tipPerson = amount * (tip / 100) / people
+  const totalPerson = amount / people + tipPerson 
 
 
-  tipText.textContent = totalTip.toFixed(2) || 0
-  totalText.textContent = totalAmount.toFixed(2) || 0
+  tipText.textContent = tipPerson.toFixed(2) || 0
+  totalText.textContent = totalPerson.toFixed(2) || 0
 }
 
 form.addEventListener('input', (e) => {
