@@ -1,0 +1,235 @@
+@layer reset {
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+  }
+
+  img {
+    display: block;
+    max-width: 100%;
+  }
+
+  input,
+  button,
+  textarea {
+    font: inherit;
+  }
+}
+
+@layer {
+  .flex {
+    display: flex;
+
+    &.column {
+      flex-direction: column;
+    }
+
+    &.space-btw {
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    &.wrap {
+      flex-wrap: wrap;
+    }
+  }
+
+  .cl-white {
+    color: var(--white);
+  }
+
+  .cl-lowgreen {
+    color: var(--grey-400);
+  }
+}
+
+:root {
+  --green-400: hsl(172, 67%, 45%);
+  --green-900: hsl(183, 100%, 15%);
+  --grey-500: hsl(186, 14%, 43%);
+  --grey-400: hsl(184, 14%, 56%);
+  --grey-200: hsl(185, 41%, 84%);
+  --grey-50: hsl(189, 47%, 97%);
+  --white: hsl(0, 100%, 100%);
+
+  --card-radius: 12px;
+  --input-radius: 4px;
+}
+
+html {
+  font-family: "Space Mono", monospace;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+
+  background-color: var(--grey-200);
+
+  main {
+    flex-grow: 1;
+  }
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+
+  .container {
+    display: grid;
+
+    width: 100%;
+    max-width: 1000px;
+    margin: auto;
+
+    .logo img {
+      margin: 1rem auto 4rem;
+    }
+  }
+}
+
+.calculator {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 2rem;
+
+  padding: 2rem;
+  border-radius: 12px;
+  background-color: var(--white);
+}
+
+form {
+  display: grid;
+  gap: 2rem;
+
+  & input[type="radio"] {
+    display: none;
+  }
+
+  & input {
+    all: unset;
+
+    &::placeholder {
+      color: inherit;
+      opacity: .3;
+    }
+
+    &[type="number"]::-webkit-inner-spin-button,
+    [type="number"]::-webkit-outer-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+  }
+
+  .input-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 10px;
+
+    text-align: right;
+    border-radius: var(--input-radius);
+
+    background-color: var(--grey-200);
+    color: var(--green-900);
+
+    & input {
+      flex-grow: 1;
+    }
+  }
+
+  .tip-options {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 1fr 1fr;
+
+    gap: 1rem;
+
+    & label {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: var(--input-radius);
+      cursor: pointer;
+    }
+
+    & label:not(.custom) {
+      background-color: var(--green-900);
+      color: var(--white);
+    }
+
+    & label:has(input[type="radio"]:checked) {
+      background-color: var(--green-400);
+      color: var(--green-900);
+    }
+
+    .custom {
+      text-align: center;
+      /* back */
+    }
+
+    & ::placeholder {
+      color: inherit;
+    }
+  }
+
+  .field-title {
+    color: var(--green-900);
+  }
+
+
+}
+
+
+.result {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 1rem;
+
+  border-radius: var(--card-radius);
+
+  font-size: .9rem;
+
+  background-color: var(--green-900);
+
+  .total {
+    display: flex;
+    font-size: 2rem;
+    color: var(--green-400);
+  }
+
+  .total::before {
+    content: '$';
+  }
+
+  & button {
+    all: unset;
+    margin-top: auto;
+    text-align: center;
+    padding: .4rem;
+
+    border-radius: var(--input-radius);
+
+    cursor: pointer;
+
+    background-color: var(--green-400);
+    color: var(--green-900);
+  }
+}
+
+@media (width < 900px) {
+  .calculator {
+    height: 100%;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+}

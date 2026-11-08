@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- displays site properly based on user's device -->
+
+  <title>Tip calculator app</title>
+
+  <link rel="stylesheet" href="style.css">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+    rel="stylesheet">
+</head>
+
+<body>
+
+  <main>
+    <div class="container">
+      <div class="logo">
+        <img src="./images/logo.svg" alt="Splitter logo">
+      </div>
+
+      <div class="calculator">
+        <form>
+          <div class="field bill-field">
+            <p class="field-title">
+              <label for="bill-field">Bill</label>
+            </p>
+
+            <label class="input-container">
+              <img src="./images/icon-dollar.svg" alt="">
+              <input type="number" name="bill" id="bill-field" placeholder="0" min="0">
+            </label>
+          </div>
+
+          <div class="field tip-field">
+            <p class="field-title">
+              <label for="custom-tip">Select Tip %</label>
+            </p>
+
+            <div class="tip-options">
+              <label for="tip-5">
+                5%
+                <input type="radio" name="tip" value="5" id="tip-5">
+              </label>
+
+              <label for="tip-10">
+                10%
+                <input type="radio" name="tip" value="10" id="tip-10">
+              </label>
+
+              <label for="tip-15">
+                15%
+                <input type="radio" name="tip" value="15" id="tip-15">
+              </label>
+
+              <label for="tip-25">
+                25%
+                <input type="radio" name="tip" value="25" id="tip-25">
+              </label>
+
+              <label for="tip-50">
+                50%
+                <input type="radio" name="tip" value="50" id="tip-50">
+              </label>
+
+              <label class="input-container custom" for="custom-tip">
+                <input type="radio" name="tip" value="50" id="custom-tip">
+                <input type="number" name="custom-tip" id="custom-tip-value" placeholder="Custom" min="0" max="100">
+              </label>
+            </div>
+          </div>
+
+          <div class="field people-field">
+            <p class="field-title">
+              <label for="number-people">Number of People</label>
+            </p>
+
+            <label class="input-container">
+              <img src="./images/icon-person.svg" alt="">
+              <input type="number" name="number-people" id="number-people" min="1" max="12" placeholder="0">
+            </label>
+          </div>
+        </form>
+
+        <div class="result">
+          <div class="flex space-btw wrap">
+            <div class="flex column">
+              <span class="cl-white">Tip Amount</span>
+              <span class="cl-lowgreen">/ person</span>
+            </div>
+
+            <div class="total tip-amount">
+              0.00
+            </div>
+          </div>
+
+          <div class="flex space-btw wrap">
+            <div class="flex column">
+              <span class="cl-white">Total</span>
+              <span class="cl-lowgreen">/ person</span>
+            </div>
+
+            <div class="total total-amount">
+              0.00
+            </div>
+          </div>
+
+
+          <button id="reset">Reset</button>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+
+  <!-- <footer class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>. 
+    Coded by <a href="#">Your Name Here</a>.
+  </footer> -->
+
+  <script src="main.js"></script>
+</body>
+
+</html>
